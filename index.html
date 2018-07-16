@@ -1,1 +1,111 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>esai-home</title>
+</head>
+
+<body>
+  <header></header>
+  <main>
+    <span class="introduction"></span>
+  </main>
+  <footer></footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var EMPTY_INDEX = -1;
+      var DAY_TIMES = {
+        WEEKSTART_MORNING: 'weekstart-morning',
+        EARLY_MORNING: 'early-morning',
+        MORNING: 'morning',
+        LUNCH_TIME: 'lunch-time',
+        AFTER_NOON: 'after-noon',
+        EVENING: 'evening',
+        WORKDAY_NIGHT: 'workday-night',
+        WEEKEND_NIGHT: 'weekend-night'
+      };
+      var WEEKDAY_NIGHTS = [5,6];
+      var WEEKSTART_MORNING = 1;
+      var IS_IT = {};
+      var INTRODUCTIONS = {};
+      var MIDNIGHT = 24;
+
+      function isDayWeekend(day) {
+        return WEEKEND_NIGHT.indexOf(day) !== EMPTY_INDEX;
+      }
+
+      function isHourNight(hour) {
+        return isBetween(getCurrentHour(), 23, 4);
+      }
+
+      function getCurrentHour () {
+        return new Date(Date.now()).getHours();
+      }
+
+      function getCurrentWeekDay () {
+        return new Date(Date.now()).getDay();
+      }
+
+      function isBetween(what, a, b) {
+        var bIsAfterMidnight = b < a;
+        var isBetweenMidnightAndB  = what < b;
+        var isBetweenAandMidnight = what > a && what < MIDNIGHT
+
+        return what > a && what < b;
+      }
+
+      IS_IT[DAY_TIMES.WEEKSTART_MORNING] = function() {
+        return WEEKSTART_MORNING === getCurrentWeekDay();
+        return isBetween(getCurrentHour(), 4, 6);
+      };
+
+      IS_IT[DAY_TIMES.EARLY_MORNING] = function () {
+        return isBetween(getCurrentHour(), 4, 6);
+      };
+
+      IS_IT[DAY_TIMES.MORNING] = function () {
+        return isBetween(getCurrentHour(), 6, 12);
+      };
+
+      IS_IT[DAY_TIMES.LUNCH_TIME] = function () {
+        return isBetween(getCurrentHour(), 12, 13);
+      };
+
+      IS_IT[DAY_TIMES.AFTER_NOON] = function () {
+        return isBetween(getCurrentHour(), 13, 19);
+      };
+
+      IS_IT[DAY_TIMES.EVENING] = function () {
+        return isBetween(getCurrentHour(), 19, 23);
+      };
+
+      IS_IT[DAY_TIMES.WORKDAY_NIGHT] = function () {
+        var isDayMatching = !isDayWeekend(getCurrentWeekDay());
+        var isNight = isHourNight(getCurrentHour());
+
+        return isDayMatching && isHourMatching;
+      };
+
+      IS_IT[DAY_TIMES.WEEKEND_NIGHT] = function () {
+        var isDayMatching = isDayWeekend(getCurrentWeekDay());
+        var isNight = isHourNight(getCurrentHour());
+
+        return isDayMatching && isHourMatching;
+      };
+
+      INTRODUCTIONS[DAY_TIMES.WEEKSTART_MORNING]= 'Herzlichen Glückwunsch! Du hast nichts gewonnen, aber du bist wahrscheinlich der erste Besucher diese Woche.';
+      INTRODUCTIONS[DAY_TIMES.EARLY_MORNING]= 'Mach das Licht aus!';
+      INTRODUCTIONS[DAY_TIMES.MORNING]= 'Morgen. Kaffee gefällig? ☕';
+      INTRODUCTIONS[DAY_TIMES.LUNCH_TIME]= 'Mahlzeit.';
+      INTRODUCTIONS[DAY_TIMES.AFTER_NOON] = 'Hi, Hallo, und einen guten Servus - schön, dass du da bist!'
+      INTRODUCTIONS[DAY_TIMES.EVENING]= 'Schönen Feierabend!';
+      INTRODUCTIONS[DAY_TIMES.WORKDAY_NIGHT]= 'Morgen frei, oder nachtaktiv?';
+      INTRODUCTIONS[DAY_TIMES.WEEKEND_NIGHT]= 'Mensch, du wirst am Montag aber keine interessanten Geschichten zu erzählen haben 🤐';
+    });
+  </script>
+</body>
+
+</html>
