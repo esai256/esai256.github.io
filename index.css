@@ -70,8 +70,8 @@ svg {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
   /* IE6-9 */
-  width: 30vw;
-  height: 30vw;
+  width: 20em;
+  height: 20em;
   animation: shadowset 5s ease forwards, drop 10s ease-out forwards, soft-fade-in 2s ease-out forwards;
 }
 
