@@ -58,6 +58,12 @@ svg {
   animation: turn-around 5s ease-in forwards reverse;
 }
 
+.logo-wrapper {
+  width: 15em;
+  height: 15em;
+  content: '&nbsp;'
+}
+
 .logo {
   margin-top: 1em;
   display: block;
@@ -74,9 +80,9 @@ svg {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
   /* IE6-9 */
-  width: 20em;
-  height: 20em;
   animation: shadowset 5s ease forwards, drop 6s ease-out forwards;
+  width: 100%;
+  height: 100%;
 }
 
 .clickToReplay {
