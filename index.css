@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  text-align: center;
   margin: 5px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -23,6 +24,8 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
   /* IE6-9 */
 }
+
+
 
 path {
   stroke-dasharray: 2950;
@@ -56,6 +59,7 @@ svg {
 }
 
 .logo {
+  margin-top: 1em;
   display: block;
   /* background: green; */
   border-radius: 50%;
@@ -72,12 +76,21 @@ svg {
   /* IE6-9 */
   width: 20em;
   height: 20em;
-  animation: shadowset 5s ease forwards, drop 10s ease-out forwards;
+  animation: shadowset 5s ease forwards, drop 6s ease-out forwards;
+}
+
+.clickToReplay {
+  color: #959595;
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin-top: 1em;
+  filter: opacity(0%);
+  animation: soft-fade-in 3s ease-out 8s forwards;
 }
 
 @keyframes soft-fade-in {
   0% {
-    filter: opacity(15%);
+    filter: opacity(0%);
   }
   100% {
     filter: opacity(100%);
