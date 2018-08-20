@@ -1,0 +1,104 @@
+.logo {
+  margin-top: 1em;
+  display: block;
+  /* background: green; */
+  border-radius: 50%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ef8c9+0,04ff24+100 */
+  background: #7ef8c9;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #7ef8c9 0%, #04ff24 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #7ef8c9 0%, #04ff24 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #7ef8c9 0%, #04ff24 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
+  /* IE6-9 */
+  animation: drop 6s ease-out forwards;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.logo__svg {
+  animation: turn-around 5s ease-in forwards reverse;
+}
+
+.logo__path {
+  stroke-dasharray: 2950;
+  stroke-dashoffset: 2950;
+  stroke-width: 100px;
+  stroke: white;
+}
+
+.logo__s-path {
+  animation: dash 5s ease-in forwards;
+}
+
+.logo__i-path-left {
+  animation: dash-reverse 3s ease-out forwards;
+}
+
+.logo__i-path-right {
+  animation: dash-reverse 3s ease-out 1s forwards;
+}
+
+.logo__dot-path-right {
+  animation: dash 1s linear 4s forwards;
+}
+
+.logo__dot-path-left {
+  animation: dash 1s linear 4.7s forwards;
+}
+
+.logo__wrapper {
+  width: 15em;
+  height: 15em;
+  content: '&nbsp;'
+}
+
+.logo__replay-message {
+  color: #959595;
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin-top: 2em;
+  filter: opacity(0%);
+  animation: soft-fade-in 2s ease-out 6s alternate infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 2950;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-reverse {
+  0% {
+    stroke-dashoffset: -2950;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes turn-around {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* DUPLICATE CODE!!! */
+@keyframes drop {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

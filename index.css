@@ -1,14 +1,12 @@
 html {
-  margin: 0
+  margin: 0;
 }
 
 body {
+  color: #5C5C5C;
   text-align: center;
-  margin: 5px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  margin: 5px 20px;
   height: 100vh;
   /* background: green; */
   border-radius: 50%;
@@ -23,83 +21,51 @@ body {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
   /* IE6-9 */
+  background-attachment: fixed;
+}
+
+main,
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .hidden {
   display: none;
 }
 
-#notForHire {
-  cursor: pointer;
-  max-width: 30em;
-}
-
-path {
-  stroke-dasharray: 2950;
-  stroke-dashoffset: 2950;
-  stroke-width: 100px;
-  stroke: white;
-}
-
-.big {
-  animation: dash 5s ease-in forwards;
-}
-
-.i.i-left {
-  animation: dash-reverse 3s ease-out forwards;
-}
-
-.i.i-right {
-  animation: dash-reverse 3s ease-out 1s forwards;
-}
-
-.dot.dot-right {
-  animation: dash 1s linear 4s forwards;
-}
-
-.dot.dot-left {
-  animation: dash 1s linear 4.7s forwards;
-}
-
-svg {
-  animation: turn-around 5s ease-in forwards reverse;
-}
-
-.logo-wrapper {
-  width: 15em;
-  height: 15em;
-  content: '&nbsp;'
-}
-
-.logo {
-  margin-top: 1em;
-  display: block;
-  /* background: green; */
-  border-radius: 50%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ef8c9+0,04ff24+100 */
-  background: #7ef8c9;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #7ef8c9 0%, #04ff24 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #7ef8c9 0%, #04ff24 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #7ef8c9 0%, #04ff24 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
-  /* IE6-9 */
-  animation: shadowset 5s ease forwards, drop 6s ease-out forwards;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.clickToReplay {
-  color: #959595;
-  font-size: 1.5em;
-  font-weight: bolder;
-  margin-top: 1em;
+.header {
   filter: opacity(0%);
-  animation: soft-fade-in 3s ease-out 8s forwards;
+  animation: shadowset 2s ease 5s forwards, soft-fade-in 2s ease-out 5s forwards;
+}
+
+.header__title {
+  margin-bottom: 0;
+}
+
+.header__subtitle {
+  color: #959595;
+}
+
+.not-for-hire {
+  cursor: not-allowed;
+  max-width: 30em;
+  display: block;
+  filter: opacity(0%);
+  animation: stamp 1s linear 5s forwards;
+  transform: rotate(20deg);
+}
+
+.not-for-hire__title {
+  display: inline-block;
+  padding: 0 .5em;
+  border: 5px solid rgb(150, 0, 0);
+  color: rgb(150, 0, 0);
+}
+
+.aria-descriptions {
+  display: none;
 }
 
 @keyframes soft-fade-in {
@@ -112,35 +78,49 @@ svg {
 }
 
 @keyframes shadowset {
-  /* 0% {
+  0% {
     filter: drop-shadow(5px 5px 15px rgba(1, 1, 1, .2));
+    text-shadow: 5px 5px 15px rgba(1, 1, 1, .2);
   }
   25% {
     filter: drop-shadow(25px 25px 25px rgba(1, 1, 1, .2));
+    text-shadow: 25px 25px 25px rgba(1, 1, 1, .2);
   }
   75% {
     filter: drop-shadow(4px 4px 3px rgba(1, 1, 1, .2));
+    text-shadow: 4px 4px 3px rgba(1, 1, 1, .2);
   }
   100% {
     filter: none;
-  } */
-}
-
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 2950;
-  }
-  100% {
-    stroke-dashoffset: 0;
   }
 }
 
-@keyframes dash-reverse {
+@keyframes stamp {
   0% {
-    stroke-dashoffset: -2950;
+    filter: opacity(0%);
+    transform: scale(10) rotate(10deg);
+  }
+  50% {
+    filter: opacity(100%);
+  }
+  90% {
+    transform: rotate(1deg);
+  }
+  92% {
+    transform: rotate(10deg);
+  }
+  94% {
+    transform: rotate(-1deg);
+  }
+  96% {
+    transform: rotate(-10deg);
+  }
+  98% {
+    transform: rotate(4deg);
   }
   100% {
-    stroke-dashoffset: 0;
+    transform: scale(1) rotate(10deg);
+    filter: opacity(100%);
   }
 }
 
@@ -150,14 +130,5 @@ svg {
   }
   100% {
     transform: translateY(0px);
-  }
-}
-
-@keyframes turn-around {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
