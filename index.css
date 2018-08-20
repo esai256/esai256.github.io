@@ -25,7 +25,14 @@ body {
   /* IE6-9 */
 }
 
+.hidden {
+  display: none;
+}
 
+#notForHire {
+  cursor: pointer;
+  max-width: 30em;
+}
 
 path {
   stroke-dasharray: 2950;
@@ -83,6 +90,7 @@ svg {
   animation: shadowset 5s ease forwards, drop 6s ease-out forwards;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .clickToReplay {
