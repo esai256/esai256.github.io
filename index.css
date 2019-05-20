@@ -68,6 +68,10 @@ header {
   display: none;
 }
 
+.show-after-animation {
+  animation: soft-fade-in 6s;
+}
+
 @keyframes soft-fade-in {
   0% {
     filter: opacity(0%);
