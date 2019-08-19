@@ -1,26 +1,37 @@
+:root {
+  --font-default: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --color-text: #4c4c4c;
+  --color-text-light: #959595;
+  --color-main-light: #58c54f;
+  --color-main-dark: #52c86c;
+  --color-background: #eeeeee;
+  --color-contrast: #bbbe47;
+  --color-shadow: rgba(1, 1, 1, 0.2);
+  --color-danger: rgb(150, 0, 0);
+  --animation-soft-entry: shadowset 2s ease 5s forwards,
+    soft-fade-in 2s ease-out 5s forwards;
+}
+
 html {
   margin: 0;
 }
 
 body {
-  color: #5C5C5C;
+  color: var(--color-text);
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 5px 20px;
-  height: 100vh;
-  /* background: green; */
-  border-radius: 50%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ef8c9+0,04ff24+100 */
-  background: #fff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #fff 0%, #7ef8c9 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #fff 0%, #7ef8c9 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #fff 0%, #7ef8c9 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ef8c9', endColorstr='#04ff24', GradientType=0);
-  /* IE6-9 */
+  font-family: var(--font-default);
+  margin: 1rem 2rem;
+  height: 100%;
+  background: var(--color-background);
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    var(--color-background) 90%,
+    var(--color-main-light) 90.001%,
+    var(--color-main-light) 95%,
+    var(--color-contrast) 95.001%,
+    var(--color-contrast) 100%
+  );
   background-attachment: fixed;
 }
 
@@ -37,7 +48,7 @@ header {
 
 .header {
   filter: opacity(0%);
-  animation: shadowset 2s ease 5s forwards, soft-fade-in 2s ease-out 5s forwards;
+  animation: var(--animation-soft-entry);
 }
 
 .header__title {
@@ -45,7 +56,21 @@ header {
 }
 
 .header__subtitle {
-  color: #959595;
+  color: var(--color-text-light);
+}
+
+.projects {
+  filter: opacity(0%);
+  animation: var(--animation-soft-entry);
+}
+
+.projects__list {
+  text-align: left;
+}
+
+.projects__icon {
+  width: 1.5rem;
+  vertical-align: middle;
 }
 
 .not-for-hire {
@@ -59,9 +84,9 @@ header {
 
 .not-for-hire__title {
   display: inline-block;
-  padding: 0 .5em;
-  border: 5px solid rgb(150, 0, 0);
-  color: rgb(150, 0, 0);
+  padding: 0 0.5em;
+  border: 5px solid var(--color-danger);
+  color: var(--color-danger);
 }
 
 .aria-descriptions {
@@ -83,16 +108,16 @@ header {
 
 @keyframes shadowset {
   0% {
-    filter: drop-shadow(5px 5px 15px rgba(1, 1, 1, .2));
-    text-shadow: 5px 5px 15px rgba(1, 1, 1, .2);
+    filter: drop-shadow(5px 5px 15px var(--color-shadow));
+    text-shadow: 5px 5px 15px var(--color-shadow);
   }
   25% {
-    filter: drop-shadow(25px 25px 25px rgba(1, 1, 1, .2));
-    text-shadow: 25px 25px 25px rgba(1, 1, 1, .2);
+    filter: drop-shadow(25px 25px 25px var(--color-shadow));
+    text-shadow: 25px 25px 25px var(--color-shadow);
   }
   75% {
-    filter: drop-shadow(4px 4px 3px rgba(1, 1, 1, .2));
-    text-shadow: 4px 4px 3px rgba(1, 1, 1, .2);
+    filter: drop-shadow(4px 4px 3px var(--color-shadow));
+    text-shadow: 4px 4px 3px var(--color-shadow);
   }
   100% {
     filter: none;
