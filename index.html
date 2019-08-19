@@ -73,6 +73,11 @@
 
       <div class="logo__replay-message">Click, to replay! 💫</div>
 
+      <noscript>
+        You cannot replay the animation if you don't have JavaScript enabled.
+        Sorry :/
+      </noscript>
+
       <div class="not-for-hire" id="notForHire">
         <h2 class="not-for-hire__title">Not for hire.</h2>
 
@@ -86,21 +91,32 @@
         >
       </div>
 
-      <section>
-        <h2>Things I've built</h2>
+      <section class="projects">
+        <h2 class="projects__heading">Things I've built</h2>
 
-        <ul>
+        <ul class="projects__list">
           <li>
-            <a href="https://gitlab.com/esai256/bitronome">
-              Bitronome - a vibrating metronome for FitBit Versa/Versa
-              Lite/Ionic
-            </a>
+            <a href="https://gitlab.com/esai256/bitronome">Bitronome</a>
+            <img
+              class="projects__icon"
+              src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12421319/icon.png"
+              style="width: 1.5rem"
+            />
+            <div>
+              a vibrating metronome for FitBit Versa/Versa Lite/Ionic
+            </div>
           </li>
 
           <li>
-            <a href="https://gitlab.com/esai256/esai-pomodoro">
-              esai-pomodoro - a pomodoro timer, that started as a spike-project
-            </a>
+            <a href="https://gitlab.com/esai256/esai-pomodoro">esai-pomodoro</a>
+            <img
+              class="projects__icon"
+              src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/10598289/esai-pomodoro.png"
+              style="width: 1.5rem"
+            />
+            <div>
+              a pomodoro timer, that started as a spike-project
+            </div>
           </li>
         </ul>
       </section>
